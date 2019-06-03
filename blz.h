@@ -2,8 +2,8 @@
 
 typedef struct footer
 {
-	u24 total_size;
-	u8 hdr_size;
+	u32 total_size : 24;
+	u32 hdr_size : 8;
 	u32 ext_size;
 } footer;
 

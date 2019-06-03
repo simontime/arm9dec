@@ -9,10 +9,10 @@ static void decompress(u8 *end)
 {
 	footer f = *(footer *)&end[-8];
 
-	u8 *data = end - as_u32(f.total_size);
+	u8 *data = end - f.total_size;
 
-	u32 cmpSize = as_u32(f.total_size) - f.hdr_size,
-		outSize = as_u32(f.total_size) + f.ext_size;
+	u32 cmpSize = f.total_size - f.hdr_size,
+		outSize = f.total_size + f.ext_size;
 
 	while (outSize)
 	{
