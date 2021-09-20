@@ -1,7 +1,7 @@
 CC=clang
 CFLAGS=-Iinclude -o${NAME}
 CFILES=*.c
-NAME=${NAME}
+NAME=arm9dec
 MAN=${NAME}.1.gz
 
 all: ${NAME} man
