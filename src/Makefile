@@ -1,13 +1,13 @@
-CC=clang
-CFLAGS=-Iinclude -o${NAME}
-CFILES=*.c
 NAME=arm9dec
+CC=clang
+CFILES=*.c
+CFLAGS=-Iinclude
 MAN=${NAME}.1.gz
 
 all: ${NAME} man
 
 ${NAME}:
-	$(CC) $(CFLAGS) $(CFILES)
+	$(CC) $(CFLAGS) $(CFILES) -o ${NAME}
 
 man:
 	gzip -k ${NAME}.1
