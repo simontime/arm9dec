@@ -1,23 +1,23 @@
 CC=clang
-CFLAGS=-Iinclude -oarm9dec
+CFLAGS=-Iinclude -o${NAME}
 CFILES=*.c
-OUT=arm9dec
-MAN=arm9dec.1.gz
+NAME=${NAME}
+MAN=${NAME}.1.gz
 
-all: arm9dec man
+all: ${NAME} man
 
-arm9dec:
+${NAME}:
 	$(CC) $(CFLAGS) $(CFILES)
 
 man:
-	gzip -k arm9dec.1
+	gzip -k ${NAME}.1
 
 clean:
-	rm $(OUT) $(MAN)
+	rm $(NAME) $(MAN)
 
 install:
-	cp $(OUT) /usr/local/bin
+	cp $(NAME) /usr/local/bin
 	cp $(MAN) /usr/local/share/man/man1
 
 uninstall:
-	rm /usr/local/bin/arm9dec
+	rm /usr/local/bin/${NAME}
